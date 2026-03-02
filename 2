@@ -1,0 +1,30 @@
+import string
+plain = string.ascii_uppercase
+cipher = "QWERTYUIOPASDFGHJKLZXCVBNM"  
+def encrypt(text):
+    result = ""
+    for char in text.upper():
+        if char in plain:
+            index = plain.index(char)
+            result += cipher[index]
+        else:
+            result += char
+    return result
+
+def decrypt(text):
+    result = ""
+    for char in text.upper():
+        if char in cipher:
+            index = cipher.index(char)
+            result += plain[index]
+        else:
+            result += char
+    return result
+
+text = input("Enter Text: ")
+
+enc = encrypt(text)
+dec = decrypt(enc)
+
+print("Encrypted Text:", enc)
+print("Decrypted Text:", dec)
